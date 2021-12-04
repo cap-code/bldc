@@ -111,7 +111,7 @@
     <div class="daily-deals-container">
       {% for items in data %}
       {%     if(items.new_deals) %}
-      <a href="http://103.86.176.198/{{items.route}}">
+      <a href="https://wahni.com/{{items.route}}">
       <div class="daily-deals-card">
         <img src="{{items.image}}" alt="card"/>
         <div class="daily-deals-content">
@@ -146,7 +146,7 @@
     <div class="daily-deals-container">
       {% for items in data %}
       {%     if(items.new_items) %}
-      <a href="http://103.86.176.198/{{items.route}}">
+      <a href="https://wahni.com/{{items.route}}">
       <div class="daily-deals-card">
         <img src="{{items.image}}" alt="card"/>
         <div class="daily-deals-content">
@@ -176,11 +176,7 @@
   </div>
   {% include "templates/includes/floatingbutton.html" %}
   {% include "templates/includes/footer.html" %}
-<!-- js should be loaded in body! -->
   <script src="./assets/bldc/js/home.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <!-- <script src="./assets/frappe/js/lib/socket.io.min.js"></script>
-  <script type="text/javascript" src="./assets/js/frappe-web.min.js"></script> -->
   <script>
 
   // frappe.ready(() => {
@@ -207,8 +203,5 @@
   //   });
 	// });
   </script>
-  <!-- <script type="text/javascript" src="/assets/js/frappe-web.min.js?ver=1636018026.0"></script>
-  <script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/erpnext-web.min.js?ver=1636018026.0"></script> -->
 </body>
 </html>

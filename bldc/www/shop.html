@@ -4,7 +4,7 @@
      {% include "templates/includes/header.html" %}
   </head>
 <body>
-  {% include "templates/includes/navbar.html" %}  
+  {% include "templates/includes/navbar.html" %}
   <div class="hero-container container-fluid">
     <div class="horizontal-slider-container">
       <div class="slide">
@@ -83,7 +83,7 @@
           <img src="./assets/bldc/image/ongridnew.png" alt="https://storyset.com/outdoors"/>
         </div>
          <div class="service-card-content">
-           <h6 class="text-center">Solar on Grid</h6>          
+           <h6 class="text-center">Solar on Grid</h6>
         </div>
       </div>
       <div class="service-card">
@@ -110,32 +110,25 @@
     </div>
     <div class="daily-deals-container">
       {% for items in data %}
-      {%     if(items.new_deals) %}
-      <a href="https://wahni.com/{{items.route}}">
-      <div class="daily-deals-card">
-        <img src="{{items.image}}" alt="card"/>
-        <div class="daily-deals-content">
-          <div>
-            <h5>{{items.web_item_name}}</h5> 
-      {%       for p in price %}  
-      {%           if(items.item_code == p.item_code) %}      
-            <h3>{{p.price_list_rate}}</h3> 
-      {%           else  %}
-      {%           endif %}
-      {%       endfor %}       
-          </div>
-          <div>
-            <div class="addtocart-con">
-              <button class="addtocart" data-id="code1">
-                  <img class="addtocart-img" src="./assets/bldc/image/addtocart.png" alt="add to cart" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </a>
-      {% else %}
-      {% endif %}
+          {% if items.new_deals %}
+              <a href="https://wahni.com/{{items.route}}">
+              <div class="daily-deals-card">
+                <img src="{{items.image}}"/>
+                <div class="daily-deals-content">
+                  <div>
+                    <h5>{{ items.web_item_name }}</h5>
+                  </div>
+                  <div>
+                    <div class="addtocart-con">
+                      <button class="addtocart" data-id="code1">
+                          <img class="addtocart-img" src="./assets/bldc/image/addtocart.png" alt="add to cart" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+          {% endif %}
       {% endfor %}
     </div>
   </div>
@@ -144,64 +137,31 @@
       <h3>New Items</h3>
     </div>
     <div class="daily-deals-container">
-      {% for items in data %}
-      {%     if(items.new_items) %}
-      <a href="https://wahni.com/{{items.route}}">
-      <div class="daily-deals-card">
-        <img src="{{items.image}}" alt="card"/>
-        <div class="daily-deals-content">
-          <div>
-            <h5>{{items.web_item_name}}</h5> 
-      {%       for p in price %}  
-      {%           if(items.item_code == p.item_code) %}      
-            <h3>{{p.price_list_rate}}</h3> 
-      {%           else  %}
-      {%           endif %}
-      {%       endfor %}       
-          </div>
-          <div>
-            <div class="addtocart-con">
-              <button class="addtocart" data-id="code1">
-                  <img class="addtocart-img" src="./assets/bldc/image/addtocart.png" alt="add to cart" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </a>
-      {% else %}
-      {% endif %}
-      {% endfor %}
+        {% for items in data %}
+            {% if items.new_item %}
+                <a href="https://wahni.com/{{ items.route }}">
+                <div class="daily-deals-card">
+                  <img src="{{items.image}}"/>
+                  <div class="daily-deals-content">
+                    <div>
+                        <h5>{{ items.web_item_name }}</h5>
+                    </div>
+                    <div>
+                      <div class="addtocart-con">
+                        <button class="addtocart" data-id="code1">
+                            <img class="addtocart-img" src="./assets/bldc/image/addtocart.png" alt="add to cart" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </a>
+            {% endif %}
+        {% endfor %}
     </div>
   </div>
   {% include "templates/includes/floatingbutton.html" %}
   {% include "templates/includes/footer.html" %}
   <script src="./assets/bldc/js/home.js"></script>
-  <script>
-
-  // frappe.ready(() => {
-		// $('.page_content').on('click', '.btn-add-to-cart', (e) => {
-		// 	const $btn = $(e.currentTarget);
-		// 	$btn.prop('disabled', true);
-		// 	const item_code = $btn.data('item-code');
-		// 	erpnext.shopping_cart.update_cart({
-		// 		item_code,
-		// 		qty: 1,
-		// 		callback(r) {
-		// 			$btn.prop('disabled', false);
-		// 			if (r.message) {
-		// 				$('.btn-add-to-cart, .btn-view-in-cart').toggleClass('hidden');
-		// 			}
-		// 		}
-		// 	});
-		// });
-  //   var addtocart = document.querySelector('.addtocart');
-  //   addtocart.forEach(btn => {
-  //     btn.addEventListener('click',(evt)=>{
-  //       console.log(btn.dataset.id);
-  //     })
-  //   });
-	// });
-  </script>
 </body>
 </html>

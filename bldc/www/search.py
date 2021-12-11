@@ -12,6 +12,7 @@ def searchlist(query,source,field):
             return True
     return False
 def get_context(context):
+    context.no_cache = 1
     if frappe.form_dict.q:
         q = str(utils.escape(sanitize_html(frappe.form_dict.q)))
         query = converttoword(q)
